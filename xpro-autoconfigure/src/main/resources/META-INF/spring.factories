@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ly.fn.inf.xpro.plugin.autoconfig.XproAutoConfiguration,\
+com.ly.fn.inf.xpro.plugin.autoconfig.RestTemplateAutoConfiguration
+
+
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.ly.fn.inf.xpro.plugin.autoconfig.env.XproEnvironmentPostProcessor

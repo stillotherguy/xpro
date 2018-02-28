@@ -1,0 +1,41 @@
+<configuration>
+    <include resource="com/ly/fn/inf/rpc/config/inf-rpc-logback.xml" />
+    <include resource="com/ly/fn/inf/daf/config/inf-daf-logback.xml" />
+
+    <if condition='isNull("LOG_DIR")'>
+        <then>
+            <if condition='isDefined("APP_HOME")'>
+                <then>
+                    <property name="LOG_DIR" value="${APP_HOME}/log" />
+                </then>
+                <else>
+                    <property name="LOG_DIR" value="log" />
+                </else>
+            </if>
+        </then>
+    </if>
+
+    <appender name="INF-XPRO-PLUGIN-DEMO-CLI-LOG-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/inf-xpro-plugin-demo-cli.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/inf-xpro-plugin-demo-cli.%d{yyyy-MM-dd}.gz</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%X{trackingCode}] [%thread] [%logger{0}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%X{trackingCode}] [%X{traceId}] [%thread] [%logger{0}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="INF-XPRO-PLUGIN-DEMO-CLI-LOG-FILE" />
+    </root>
+
+</configuration>
