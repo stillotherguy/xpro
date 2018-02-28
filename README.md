@@ -100,10 +100,15 @@
   
 - 部署结构如下图
 
-![](./doc/Xpro整体结构.png)
+![](./doc/structure.jpg)
 
 详细设计
 ==============
+- 老的rpc分层设计
+![](./doc/rpc-design.png)
+
+- 老的rpc分层设计
+![](./doc/xpro-design.png)
 
 - 远程服务发布
 
