@@ -107,7 +107,7 @@
 - 老的rpc分层设计
 ![](./doc/rpc-design.png)
 
-- 老的rpc分层设计
+- 新的rpc分层设计
 ![](./doc/xpro-design.png)
 
 - 远程服务发布
