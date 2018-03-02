@@ -126,32 +126,32 @@
 
 然后，在接口上标记注解 @RpcService ，并在每个方法上标注 @RpcMethod和@Sla 注解(主要用于标示异步特性)，如下:
 ```
-    @RpcService(serviceGroup = "hello")
-    public interface HelloService {
-    
-        String hello();
-    
-        User helloUser(User user, String name);
-    
-        void helloExp() throws AppBizException;
-    }
+@RpcService(serviceGroup = "hello")
+public interface HelloService {
+
+    String hello();
+
+    User helloUser(User user, String name);
+
+    void helloExp() throws AppBizException;
+}
 ```
 ```  
-    @RpcService(serviceGroup = "hello")
-    public interface AsyncHelloService {
-    
-        @RpcMethod(async = true)
-        void voidHelloAsync();
-    
-        @RpcMethod(async = true)
-        String helloAsync();
-    
-        @RpcMethod(async = true)
-        void voidHelloAsyncExp() throws AppBizException;
-    
-        @RpcMethod(async = true)
-        void voidHelloAsyncCallback(String str, @Callback CallbackService callback);
-    }
+@RpcService(serviceGroup = "hello")
+public interface AsyncHelloService {
+
+    @RpcMethod(async = true)
+    void voidHelloAsync();
+
+    @RpcMethod(async = true)
+    String helloAsync();
+
+    @RpcMethod(async = true)
+    void voidHelloAsyncExp() throws AppBizException;
+
+    @RpcMethod(async = true)
+    void voidHelloAsyncCallback(String str, @Callback CallbackService callback);
+}
 ```
 然后在Eureka Server就能看到已经注册的服务列表的地址和端口
 
